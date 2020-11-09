@@ -157,7 +157,7 @@ for item in myList:
 for a,b in myList:
     print(a)
     print(b)
-print('******************************')
+print('***********************************************')
 myList = [(1,2,3),(4,5,6),(7,8,9)]
 for a,b,c in myList:
     print(b)
@@ -165,9 +165,142 @@ for a,b,c in myList:
 d = {'k1':1,'k2':2,'k3':3}
 for item in d:
     print(item)
+
 for item in d.items():
     print(item)
+
 for key,value in d.items():
     print(value)
+
 for value in d.values():
     print(value)
+
+print('#*************************************************#')
+# while loop Syntax
+
+# while some_boolean_condition:
+    # do somthing
+# else:
+    # do somthing different
+
+x = 0
+while x < 5:
+    print(f'The current value of x is {x}')
+    x+=1
+else:
+    print("X is not less than 5")
+# we can use break & continue & pass
+
+# break : Break out the current enclosing loop.
+# continue : Goes to the top of the closest enclosing loop.
+# pass : Dose nothing at all .
+
+
+x = [1,2,3]
+for item in x:
+    #comment
+    pass
+print('end of my script')
+
+print('#*************************************************#')
+
+myString = 'Sammy'
+for letter in myString:
+    if letter == 'a':
+       continue
+    print(letter)
+
+print('#*************************************************#')
+
+myString = 'Sammy'
+for letter in myString:
+    if letter == 'a':
+       break
+    print(letter)
+
+print('#*************************************************#')
+
+x = 0
+while x < 5:
+    if x == 2:
+       break
+    print(f'The current value of x is {x}')
+    x+=1
+else:# this line will not work
+    print("X is not less than 5")
+
+print('#********************# Useful operators in Python *****************************#')
+
+
+for num in range(10):
+    print(num)
+
+print('#*************************************************#')
+
+for num in range(3,10):
+    print(num)
+
+print('#*************************************************#')
+
+for num in range(0,11,2):# add steps
+    print(num)
+
+print('#*************************************************#')
+mylist=list(range(0,11,2))
+print(mylist)
+
+print('#*************************************************#')
+
+index_count =0
+for letter in 'adbc':
+    print('At index {} the letter is {}'.format(index_count,letter))
+    index_count += 1
+
+print('#*************************************************#')
+
+word = 'abcde'
+for index,letter in enumerate(word):
+    print(index)
+    print(letter)
+
+print('#******************ZIP Operator*******************************#')
+
+myList1 = [1,2,3,4,5,6]
+myList2 = ['a','b','c']
+myList3 = [100,200,300]
+for item in zip (myList1,myList2,myList3):
+   print(item)
+for a,b,c in zip (myList1,myList2,myList3):
+   print(b)
+print('#********************IN operator*****************************#')
+
+print('x' in [1,2,3])
+print('x' in ['x','y','z'])
+print('a' in 'a world')
+print('mykey' in {'mykey' :345} )
+
+d = {'mykey' :345}
+print(345 in d.keys())
+print(345 in d.values())
+
+print('#******************** Min & Max ****************************#')
+myList = [1,2,3,4,5,6]
+print(f'minimum value is {min(myList)}')
+print(f'maximum value is {max(myList)}')
+
+print('#******************** import ****************************#')
+from random import shuffle
+myList = [1,2,3,4,5,6,7,8,9,10]
+shuffle(myList)
+print(myList)
+
+from random import randint
+print(randint(0,100))
+print(randint(0,100))
+
+print('#******************** Enter a number  ****************************#')
+res = int(input('Enter a number here : '))
+
+result = input('what is your name ? ')
+
+print(f'hellow {result}')
