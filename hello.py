@@ -304,3 +304,186 @@ res = int(input('Enter a number here : '))
 result = input('what is your name ? ')
 
 print(f'hellow {result}')
+
+print('#********************* List Comprehensions ****************************#')
+
+mystring = 'hellow world'
+mylist = []
+for letter in mystring:
+    mylist.append(letter)
+print(mylist)
+
+mylist = [letter for letter in mystring]
+print(mylist)
+
+mylist = [letter for letter in 'mystring']
+print(mylist)
+
+mylist = [x for x in range(0,11)]
+print(mylist)
+
+mylist = [x**2 for x in range(0,11)]
+print(mylist)
+
+mylist = [x for x in range(0,11) if x%2==0]
+print(mylist)
+
+celcius = [0,10,20,34.4]
+fahrenheit = [((9/5)*temp +32 )for temp in celcius]
+print(fahrenheit)
+
+
+fahrenheit = []
+for temp in celcius:
+    fahrenheit.append(((9/5)*temp +32 ))
+print(fahrenheit)
+
+mylist = [x if x%2==0 else 'ODD' for x in range(0,11) ]
+print(mylist)
+
+mylist = []
+for x in [2,4,6]:
+    for y in [100,200,300]:
+        mylist.append(x*y)
+print(mylist)
+
+mylist = [x*y for x in [2,4,6] for y in [100,200,300]]
+print(mylist)
+
+print('#********************* Method and Functions ****************************#')
+mylist = [1,2,3]
+#print(help(mylist.insert))
+
+# def name_of_function(): # Snake casing is all lowercases with underscores between words.
+
+def add_function(num1,num2):
+    return num1+num2
+result = add_function(4,5)
+print(result)
+
+def say_hello(name='Default'):
+     print(f'hello {name}')
+
+say_hello('Aliiii')
+say_hello()
+
+def even_check(number):
+    result = number % 2 == 0
+    return result
+print(even_check(20))
+print(even_check(21))
+
+#  RETURN TRUE IF ANY NUMBER IS EVEN INSIDE A LIST
+def check_even_list(list_num):
+    for num in list_num:
+        if num % 2 == 0:
+            return True
+        else:
+             pass
+    return False
+result = check_even_list([1,3,5])
+print(result)
+
+result = check_even_list([2,4,5])
+print(result)
+
+result = check_even_list([1,1,1,1,1,1,1,1,1,4])
+print(result)
+
+
+# RETURN ALL EVEN NUMBERS IN A LIST
+def check_even_list(list_num):
+    even_list =[]
+    for num in list_num:
+        if num % 2 == 0:
+            even_list.append(num)
+        else:
+            pass
+    return even_list
+
+result = check_even_list([2,4,5])
+print(result)
+result = check_even_list([1,1,1,1,1,1,1,1,1,4])
+print(result)
+
+# TUPLE UNPACKING WITH PYTHON Functions
+stock_prices = [('apple',200),('google',800),('msft',500)]
+for item in stock_prices:
+    print(item)
+
+stock_prices = [('apple',200),('google',800),('msft',500)]
+for ticker,price in stock_prices:
+    print(ticker)
+
+stock_prices = [('apple',200),('google',800),('msft',500)]
+for ticker,price in stock_prices:
+    print(price+(0.1*price))
+
+# CHECK EMPLOYEE OF THIS MONTH
+def check_employee(employee_list):
+    current_max=0
+    employee_of_month=''
+    for employee,hours in employee_list:
+        if hours > current_max:
+            current_max = hours
+            employee_of_month = employee
+        else:
+            pass
+
+    return (employee_of_month,current_max)
+
+
+employee_list = [('Ali',3000),('Samir',4000),('Mizo',2000)]
+result = check_employee(employee_list)
+print(result)
+
+employee_list = [('Ali',3000),('Samir',4000),('Mizo',2000)]
+name,hours = check_employee(employee_list)
+print(f'the employee of month {name}')
+
+#*****************interation between python functions *************************/
+
+from random import shuffle
+
+def shuffle_list(myList):
+    shuffle(myList)
+    return myList
+
+mylist=[1,2,3,4,5,6,7]
+shuffle_list(mylist)
+print(mylist)
+
+#*****************   *args and **kwargs *************************/
+def myfunc(*args):
+    for item in args:
+        print(item)
+
+myfunc(10,20,30,40,50,60,70)
+
+
+def myfunc(**kwargs):
+    if 'fruit' in kwargs:
+        print('My fruit of choice is {}'.format(kwargs['fruit']))
+    else:
+        print('I did not find any fruit here')
+
+myfunc(fruit='apple',veggie='lettuce')
+
+
+def myfunc(*args,**kwargs):
+    print(args)
+    print(kwargs)
+    print('I would like {} {}'.format(args[0],kwargs['food']))
+
+myfunc(10,20,30,40,fruit='orange',food='eggs',animal='dog')
+
+print(range(len('dsnigfsgknfdksvnfkdsnvf')))
+
+def myfunc(string):
+    new_string = ''
+    for x in range(len(string)):
+        if (x+1)%2==0:
+            new_string += string[x].upper()
+        else:
+            new_string += string[x].lower()
+    return new_string
