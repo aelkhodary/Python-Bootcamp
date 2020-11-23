@@ -487,3 +487,41 @@ def myfunc(string):
         else:
             new_string += string[x].lower()
     return new_string
+
+
+
+
+#***************** Method and Functions *************************/
+
+def up_low(s):
+    d = {'lower':0,'upper':0} # dictionary
+    for char in s:
+        if char.isupper():
+            d['upper']+=1
+        elif char.islower():
+            d['lower']+=1
+        else:
+            pass
+    print(f"Original Strring: {s}")
+    print(f'Lowercase count : {d["lower"]}')
+    print(f'Uppercase count : {d["upper"]}')
+
+
+up_low('Hello Mr.Rogers , how are you htis fine Tuesday')
+
+def unique_list(lst):
+    return list(set(lst))
+
+list = unique_list([1,1,1,1,1,1,1,2,3,4])
+print(list)
+
+def unique_list(lst):
+    seen_number = []
+    for num in lst:
+        if num not in seen_number:
+            seen_number.append(num)
+    return seen_number
+
+list = unique_list([1,1,1,1,1,1,1,2,3,4])
+print(list)
+            
