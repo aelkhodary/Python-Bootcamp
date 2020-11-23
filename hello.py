@@ -488,7 +488,63 @@ def myfunc(string):
             new_string += string[x].lower()
     return new_string
 
+#/************************** Lambda expression and Map **************************************/
 
+def square(num):
+    return num**2
+my_nums = [1,2,3,4,5]
+
+for item in map(square,my_nums):
+    print('item is {}'.format(item))
+
+print(list(map(square,my_nums)))
+
+#/************************** map
+def splicer(mystring):
+    if len(mystring)%2 == 0:
+        return 'Even'
+    else:
+        return mystring[0]
+
+names = ['Andy','Eve','Sally']
+
+print(list(map(splicer,names)))
+
+#/************************** filter
+
+def check_even(num):
+    return num%2 == 0
+mynums =[1,2,3,4,5,6]
+mylist= []
+for item in filter(check_even,mynums):
+    mylist.append(item)
+print(mylist)
+#/************************** lambda
+square = lambda num: num ** 2
+print(square(2))
+
+#print(list(map(square,my_nums)))
+print(list(map(lambda num: num ** 2,my_nums)))
+print(list(filter(lambda num:num%2==0,mynums)))
+print(list(map(lambda x:x[0],names)))
+print(list(map(lambda x:x[::-1],names)))
+
+#/************************** LEGB Rule :
+#L:Local E:Enclosing G:Global B:Built-in
+
+name ='THIS IS A GLOBAL STRING' #G:Global
+def greet():
+    name='Sammy' #L:Local
+
+    def hello():
+        name ='Ali' #E:Enclosing
+        print('Hello '+name)
+
+    hello()
+
+greet()
+
+#/**************************
 
 
 #***************** Method and Functions *************************/
