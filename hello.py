@@ -524,4 +524,15 @@ def unique_list(lst):
 
 list = unique_list([1,1,1,1,1,1,1,2,3,4])
 print(list)
-            
+
+
+
+#***************** Object Oriented Programming *************************/
+# class NameOfClass():
+#       def _init_(self,param1,param2):
+#           self.param1 = param1
+#           self.param2 = param2
+
+#       def some_method(self):
+#           # perform some action
+#           print(self.param1)
