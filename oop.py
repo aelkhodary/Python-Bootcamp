@@ -127,3 +127,53 @@ mydog.eat()
 mydog.bark()
 
 #*********** Object Oriented Programming- Polymorphism *************/
+
+# two usage
+# 1- two classes have smae function
+# 2- when we have abstract class
+
+# 1- two classes have smae function
+class Dog():
+    def __init__(self,name):
+        self.name = name
+    def speack(self):
+        return "my name is " + self.name
+
+class Cat():
+    def __init__(self,name):
+        self.name = name
+    def speack(self):
+        return "my name is " + self.name
+
+dog = Dog("haski")
+cat = Cat("Lyly")
+for pet in [dog,cat]:
+    print(pet.speack())
+
+# 2- when we have abstract class
+
+class Animal():
+    def __init__(self,name):
+        self.name = name
+
+    def speack(self):
+        raise NotImplementedError("should implemnted by sup class ")
+
+# animal = Animal("haski")
+# animal.speack()
+
+class Dog(Animal):
+    def speack(self):
+        return "my name is " + self.name
+
+class Cat(Animal):
+    def speack(self):
+        return "my name is " + self.name
+
+dog = Dog("haski")
+cat = Cat("Lyly")
+
+def animal(inst):
+     print(inst.speack())
+animal(dog)
+animal(cat)
