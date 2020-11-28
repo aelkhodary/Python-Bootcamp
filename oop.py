@@ -177,3 +177,74 @@ def animal(inst):
      print(inst.speack())
 animal(dog)
 animal(cat)
+
+#*********** Object Oriented Programming  Special(Magic/Dunder) Methods *************/
+
+class Book():
+    def __init__(self,title,author,pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
+    def __len__(self):
+        return self.pages
+
+    def __del__(self): # what happend when we delete instance from class
+        print('A Book object has been deleted')
+
+b = Book('Python rocks','Jose',200)
+print(b)
+print(str(b))
+print(len(b))
+del b
+#del(b)
+
+#*********** Challenge Solution *************/
+class Account():
+
+    def __init__(self,owner,balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self,dep_amt):
+        self.balance += dep_amt
+        print(f"Added {dep_amt} to the balance")
+
+    def withdrawal(self,wd_amt):
+        if self.balance >= wd_amt:
+            self.balance -= wd_amt
+            print('withdrawal accepted')
+        else:
+            print('Sorry No balance in your account')
+
+    def __str__(self):
+       return f"Owner : {self.owner} \nBalance: {self.balance}"
+
+a = Account('Sam' , 500)
+print(a)
+a.deposit(300)
+print(a)
+a.withdrawal(800)
+print(a)
+
+#*********** Modules and Packages *************/
+# PyPI is a repository for open source third-party Python packages.
+# It's similar to NPM for Node.js
+# We can use 'pip install' at the command line to install these packages.
+# By installing Python from python.org or through the Anaconda distribution
+# you also installed pip
+# pip is a simple way to download packages at your command line directly from the
+# PyPi repository
+# > pip install <pakage-name>
+# > pip install requests
+# > pip install colorama
+# > pip install openpyxl
+# > import openpyxl
+# > quit()
+#*********** Writing your own modules and packages *************/
+
+# modules are just.py scripts that you call in another.py script .
+# packages are collection of modules .
