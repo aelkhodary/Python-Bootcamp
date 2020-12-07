@@ -191,14 +191,14 @@ print(math.sin(10))
 print(math.degrees(math.pi/2))
 print(math.radians(180))
 
-print('\n**************  **************\n')
+print('\n********************  *********************\n')
 
 from math import floor , ceil , pi
 print(floor(4.35))
 print(ceil(4.35))
 print(pi)
 
-print('\n************** Random **************\n')
+print('\n************** Random **********************\n')
 
 import random
 print(random.randint(0,100))
@@ -224,3 +224,94 @@ print(mylist)
 
 print(random.uniform(a=0 , b=100))
 print(random.gauss(mu=0 , sigma=100))
+
+
+print('\n******************* Python Debugger **********************\n')
+'''
+https://docs.python.org/3/library/pdb.html
+'''
+
+import pdb
+
+x = [1,2,3]
+y = 2
+z = 3
+
+result_one = y + z
+#pdb.set_trace()
+#result_two = y + x
+
+print('\n************* Python Regular Expressions Part One ****************\n')
+
+'''
+https://docs.python.org/3/library/re.html
+
+Phone Number
+(555)-555-5555
+Regex Pattern
+r"(\d\d\d)-\d\d\d-\d\d\d\d"
+r"(\d{3})-\d{3}-\d{4}"
+'''
+
+text = "the agent's phone number is 408-555-1234. Call soon!"
+
+print('phone' in text)
+
+import re
+
+pattern = 'phone'
+res = re.search(pattern,text)
+print(type(res))
+print(res.span())
+print(res.start())
+print(res.end())
+
+# None
+print('\n****** None ********\n')
+pattern = 'NOT IN TEXT'
+res = re.search(pattern,text)
+print(res)
+
+# FIRST MATCH
+print('\n******* FIRST MATCH *******\n')
+pattern = 'phone'
+text = "my phone once , my phone twice "
+match = re.search(pattern,text)
+print(match)
+print(match.span())
+print(match.group())
+
+# FIND ALL
+print('\n********* FIND ALL *******\n')
+pattern = 'phone'
+text = "my phone once , my phone twice "
+matches = re.findall(pattern,text)
+print(matches)
+print(type(matches))
+print(len(matches))
+
+
+# FIND ITERATOR
+print('\n********* FIND ITERATOR *******\n')
+pattern = 'phone'
+text = "my phone once , my phone twice "
+for match in re.finditer(pattern,text):
+    print(match)
+    print(type(match))
+    print(match.span())
+    print(match.group())
+
+# FIND ITERATOR
+print('\n********* Regular Expressions *******\n')
+text = "My Phone number is 408-555-1287"
+#pattern = "\d\d\d-\d\d\d-\d\d\d\d"
+pattern = r"\d{3}-\d{3}-\d{4}"
+print(type(pattern))
+#match = re.search(r'\d{3}-\d{3}-\d{4}',text)
+match = re.search(pattern,text)
+print(match)
+print(match.span())
+print(match.group())
+
+str = r'sfkbesigbfd  fdsighiew dsigrhuiew fopesghr ihfiwr iknk '
+print(str.upper())
