@@ -251,6 +251,8 @@ Phone Number
 Regex Pattern
 r"(\d\d\d)-\d\d\d-\d\d\d\d"
 r"(\d{3})-\d{3}-\d{4}"
+r'/d' we tell python after comming / is regular expression
+
 '''
 
 text = "the agent's phone number is 408-555-1234. Call soon!"
@@ -301,7 +303,7 @@ for match in re.finditer(pattern,text):
     print(match.span())
     print(match.group())
 
-# FIND ITERATOR
+
 print('\n********* Regular Expressions *******\n')
 text = "My Phone number is 408-555-1287"
 #pattern = "\d\d\d-\d\d\d-\d\d\d\d"
@@ -313,5 +315,43 @@ print(match)
 print(match.span())
 print(match.group())
 
-str = r'sfkbesigbfd  fdsighiew dsigrhuiew fopesghr ihfiwr iknk '
-print(str.upper())
+print('\n********* Regular Expressions Groups*******\n')
+text = "My Phone number is 408-555-1287"
+phone_pattern = re.compile(r'(\d{3})-(\d{3})-(\d{4})')
+match = re.search(phone_pattern,text)
+print(match.group())
+print(match.group(1))
+print(match.group(2))
+print(match.group(3))
+
+print('\n********* Additional Regex Syntax *******\n')
+
+print('\n********* pipe operator -> that stands for or meaning *******')
+match = re.search(r'cat|dog','The dog is here ')
+print(match.group())
+match = re.search(r'cat|dog','The cat is here ')
+print(match.group())
+
+print('\n********* wild card operator -> acts as placement that will match any character *******')
+# WITHOUT WILD CARD
+match = re.findall(r'at', 'The cat in the hat sat there')
+print(match)
+# WITH WILD CARD
+match = re.findall(r'.at', 'The cat in the hat sat there')
+print(match)
+match = re.findall(r'...at', 'The cat in the hat went splat')
+print(match)
+
+print('\n********* starts with and ends with *******')
+# START WITH
+match = re.findall(r'^\d', '1 is a number ')
+print(match)
+'''
+match = re.findall(r'^\d', 'The 1 is a number ')
+print(match)
+'''
+# END WITH
+match = re.findall(r'\d$', 'The number is 2')
+print(match)
+
+print('\n********* Timing Your Python Code *******')
