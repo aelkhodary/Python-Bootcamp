@@ -354,4 +354,118 @@ print(match)
 match = re.findall(r'\d$', 'The number is 2')
 print(match)
 
-print('\n********* Timing Your Python Code *******')
+print('\n**************************************** Timing Your Python Code **********************')
+
+'''
+* Time your code's performance:
+  - we will focus on 3 ways of doing this
+   * simply tracking time elapsed  'الوقت المنقضي'
+   * Using the timeit module
+   * Special %%timeit "magic" for Jupyter Notebooks
+
+'''
+#  WE NEED TO KNOW WHICH ONE IS MORE EFFICIENT
+def func_one(n):
+    return [str(num) for num in range(n)]
+
+print(func_one(10))
+
+def func_two(n):
+    return list(map(str,range(n)))
+
+print(func_one(10))
+
+print('\n***************** Tracking time elapsed *******************')
+# CURRENT TIME BEFORE
+import time
+start_time = time.time()
+#RUN CODE
+result = func_one(10)
+#CURRENT TIME AFTER RUNNNING CODE
+end_time = time.time()
+#ELAPSED TIME
+elapsed_time = end_time - start_time
+
+print(f'elapsed_time  of function one is {elapsed_time} ')
+
+# CURRENT TIME BEFORE
+import time
+start_time = time.time()
+#RUN CODE
+result = func_one(10)
+#CURRENT TIME AFTER RUNNNING CODE
+end_time = time.time()
+#ELAPSED TIME
+elapsed_time = end_time - start_time
+
+print(f'elapsed_time  of function two is {elapsed_time} ')
+
+
+print('\n***************** Using the timeit module *******************')
+
+import timeit
+# stmt is the acually code i want to run
+stmt = '''
+func_one(1000)
+'''
+# setup is essentially what code needs to be run before you call statement 'stmt'
+setup = '''
+def func_one(n):
+    return [str(num) for num in range(n)]
+'''
+# number is number of times you actually want to run this code
+print(f'elapsed_time  of function one is {timeit.timeit(stmt,setup,number=100)} ')
+
+
+stmt = '''
+func_two(1000)
+'''
+setup = '''
+def func_two(n):
+    return [str(num) for num in range(n)]
+'''
+print(f'elapsed_time  of function two is {timeit.timeit(stmt,setup,number=100)} ')
+
+
+print('\n***************** Special %%timeit "magic" for Jupyter Notebooks *******************')
+'''
+%%timeit
+func_one(1000)
+
+%%timeit
+func_two(1000)
+'''
+
+
+print('\n**************************************** Zipping and unzipping files **********************')
+
+'''
+* Create a couple of text files for us to work with and compress
+* How to zip individual files and compress them
+'''
+
+f = open('fileone.txt','w+')
+f.write('ONE FILE')
+f.close()
+
+f = open('filetwo.txt','w+')
+f.write('TWO FILE')
+f.close()
+
+import zipfile
+comp_file = zipfile.ZipFile('comp_file.zip','w')
+comp_file.write('fileone.txt', compress_type = zipfile.ZIP_DEFLATED)
+comp_file.write('filetwo.txt', compress_type = zipfile.ZIP_DEFLATED)
+comp_file.close()
+
+zip_obj = zipfile.ZipFile('comp_file.zip','r')
+zip_obj.extractall('extracted_content')
+'''
+Shell Utility library is abetter tool for archive an entire folder or extract them
+'''
+print('\n***************** Shell Utility library *******************')
+import shutil
+dir_to_zip = '/Users/aelkhodary/Documents/GitHub/Python-Bootcamp/section14/extracted_content'
+output_filename = 'example'
+shutil.make_archive(output_filename,'zip',dir_to_zip)
+shutil.unpack_archive('example.zip','final_unzip','zip')
