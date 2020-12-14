@@ -17,3 +17,15 @@ print(mac.size)
 print(mac.filename)
 mac.crop((0,0,25,25))
 mac.show()
+
+
+'''
+* COLOR TRANSPARENCY
+* RGBA
+* Red , Green , Blue , Alpha
+
+'''
+
+red = Image.open('C:\\Users\\amelkhodary\\Downloads\\img.jfif')
+red.putalpha(128)
+red.show()
